@@ -1,0 +1,39 @@
+@import url(./buttons.css);
+@import url(./modal.css);
+@import url(./pagination.css);
+@import url(./card.css);
+@import url(./table.css);
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  height: 45px;
+  background-color: rgb(86, 97, 97);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.justify-content-center {
+  justify-content: center;
+}

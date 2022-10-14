@@ -1,0 +1,52 @@
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.modal {
+  transition: all .3s;
+  width: 50%;
+  background-color: aliceblue;
+  margin: auto;
+  position: relative;
+  top: -300px;
+  opacity: 0;
+  border-radius: 7px;
+  box-shadow: 0 0 10px gray;
+  padding-bottom: 8px;
+}
+
+.modal-title {
+  padding: 5px;
+}
+
+.modal-title p {
+  margin: 0;
+  padding-left: 5px;
+  font-size: small;
+}
+
+.animate-modal {
+  top: 0;
+  opacity: 1;
+}
+
+.inputs-container {
+  margin: 5px;
+  margin-bottom: 35px;
+}
+
+.inputs-container * {
+  box-sizing: border-box;
+}
+
+.read-section {
+  margin: auto;
+  padding: 10px;
+}
