@@ -58,7 +58,7 @@ function getTableBooks(books) {
   `)
 
   return `
-    <table border="1">
+    <table border="1" class="m-auto">
       <tbody>
         ${booksRows.join('')}
       </tbody>
@@ -72,7 +72,7 @@ function getCardsBooks(books) {
       <div class="card-title">${book.id}, ${book.name}</div>
       <div class="card-content">
        <img src="${book.imgUrl}" alt="book photo" class="card-image" />
-       <p>${book.price}</p>
+       <p>$${book.price}</p>
       </div>
       <div class="card-actions">
         <button class="btn btn-read"   onclick="onReadBook('${book.id}')">Read</button>
@@ -82,6 +82,5 @@ function getCardsBooks(books) {
     </div>
   `)
 
-  booksCards.unshift(`<div class="card">+</div>`)
   return booksCards.join('')
 }
