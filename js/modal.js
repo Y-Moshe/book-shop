@@ -57,6 +57,11 @@ function getTemplate(actionType, bookId = null) {
           Book Price
           <input name="bookPrice" class="w-100" />
         </label>
+
+        <label>
+          Book Image
+          <input name="bookImg" class="w-100" />
+        </label>
       </div>
 
       <hr />

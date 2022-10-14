@@ -38,9 +38,10 @@ function onModalSubmit(ev, actionType, bookId) {
   const formData = new FormData(ev.target)
   const bookName = formData.get('bookName')
   const bookPrice = formData.get('bookPrice')
+  const bookImg = formData.get('bookImg')
 
-  if (actionType === 'ADD') addBook(bookName, bookPrice)
-  else updateBook(bookId, bookName, bookPrice)
+  if (actionType === 'ADD') addBook(bookName, bookPrice, bookImg)
+  else updateBook(bookId, bookName, bookPrice, bookImg)
 
   closeModal()
   renderBooks()
