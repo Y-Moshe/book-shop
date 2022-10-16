@@ -1,5 +1,7 @@
 function openModal() {
-  $('#modal').modal('show')
+  const $modal = $('#modal')
+  $modal.modal('show')
+  doTrans($modal[0])
 }
 
 function closeModal() {
@@ -30,9 +32,9 @@ function setModalContent(actionType, book = null) {
           <hr />
 
           <p>${book.desc}</p>
-          <label for="rate">Rate(${book.rate}):</label>
+          <label for="rate"><span data-trans="rate">Rate<span>(${book.rate}):</label>
           <input id="rate" type="number" min="0" max="10" oninput="onRateChange('${book.id}', this.value)" />
-          <button type="button" onclick="closeModal()" class="btn btn-danger">Close</button>
+          <button type="button" onclick="closeModal()" class="btn btn-danger" data-trans"close">Close</button>
         </div>
       `
       break;
@@ -45,28 +47,29 @@ function setModalContent(actionType, book = null) {
 
 function getTemplate(actionType, book = null) {
   const btnClass = actionType === 'ADD' ? 'btn-success' : 'btn-warning'
+  const transBtn = actionType === 'ADD' ? 'newBookBtn' : 'update'
   return `
     <form onsubmit="onModalSubmit(event, '${actionType}', '${book?.id}')">
       <div class="form-group">
-        <label>Book Name</label>
-        <input name="bookName" class="form-control w-100" value="${book?.name || ''}" />
+        <label for="bookName" data-trans="bookName">Book Name</label>
+        <input name="bookName" id="bookName" class="form-control w-100" value="${book?.name || ''}" />
       </div>
 
       <div class="form-group">
-        <label>Book Price</label>
-        <input name="bookPrice" class="form-control w-100" value="${book?.price || ''}" />
+        <label for="bookPrice" data-trans="bookPrice">Book Price</label>
+        <input name="bookPrice" id="bookPrice" class="form-control w-100" value="${book?.price || ''}" />
       </div>
 
       <div class="form-group">
-        <label>Book Image</label>
-        <input name="bookImg" class="form-control w-100" value="${book?.imgUrl || ''}" />
+        <label for="bookImg" data-trans="bookImg">Book Image</label>
+        <input name="bookImg" id="bookImg" class="form-control w-100" value="${book?.imgUrl || ''}" />
       </div>
 
       <hr />
 
       <div class="d-flex justify-content-around">
-        <button class="btn ${btnClass} w-25">${actionType}</button>
-        <button type="button" class="btn btn-secondary w-25" data-dismiss="modal">Cancel</button>
+        <button class="btn ${btnClass} w-25" data-trans="${transBtn}">${actionType}</button>
+        <button type="button" class="btn btn-secondary w-25" data-dismiss="modal" data-trans="cancel">Cancel</button>
       </div>
     </form>
   `

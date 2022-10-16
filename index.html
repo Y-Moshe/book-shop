@@ -17,30 +17,38 @@
 </head>
 
 <body onload="onInit()">
-  <header class="bg-dark" style="height: 48px"></header>
+  <header class="bg-dark d-flex justify-content-end p-2">
+    <div class="form-group w-25 text-white">
+      <label for="lang" data-trans="langLabel">Language</label>
+      <select class="form-control form-control-sm" onchange="onLanguageChange(this.value)">
+        <option value="en" data-trans="enOption">English</option>
+        <option value="he" data-trans="heOption">Hebrew</option>
+      </select>
+    </div>
+  </header>
 
   <div class="container-fluid row bg-light p-2 m-0">
     <div class="col-sm-4">
       <!-- New Book Button -->
-      <button class="btn btn-success w-100" onclick="onAddBook()">Create a New Book</button>
+      <button class="btn btn-success w-100" onclick="onAddBook()" data-trans="newBookBtn">Create a New Book</button>
 
       <!-- Search Input -->
       <div class="form-group">
-        <label for="search">Search by Name</label>
+        <label for="search" data-trans="searchByBook">Search by Name</label>
         <input id="search" type="text" placeholder="Search by Book Name" class="form-control"
-          oninput="onFilterChange('search', this.value)" name="search">
+          oninput="onFilterChange('search', this.value)" name="search" data-trans="searchByBook">
       </div>
 
       <!-- Range Inputs -->
       <div class="form-group">
         <div class="form-group">
-          <label for="maxPrice">Max Price</label>
-          <input id="maxPrice" type="range" min="0" max="200"
+          <label for="maxPrice" data-trans="maxPrice">Max Price</label>
+          <input id="maxPrice" type="range" min="0" max="200" data-trans="maxPrice"
             oninput="onFilterChange('maxPrice', +this.value)" name="maxPrice">
         </div>
         <div class="form-group">
-          <label for="minRate">Min Rate</label>
-          <input id="minRate" type="range" min="0" max="10"
+          <label for="minRate" data-trans="minRate">Min Rate</label>
+          <input id="minRate" type="range" min="0" max="10" data-trans="minRate"
             oninput="onFilterChange('minRate', +this.value)" name="minRate">
         </div>
       </div>
@@ -98,6 +106,7 @@
   <script src="js/services/books.service.js"></script>
   <script src="js/services/layout.service.js"></script>
   <script src="js/services/page.service.js"></script>
+  <script src="js/services/i18n.service.js"></script>
 
   <!-- Controllers -->
   <script src="js/books.controller.js"></script>
